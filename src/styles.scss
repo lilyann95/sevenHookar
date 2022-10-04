@@ -1,1 +1,136 @@
-/* You can add global styles to this file, and also import other style files */
+@use "sass:map";
+@use "@angular/material" as mat;
+@import "~bootstrap/scss/bootstrap";
+@import "../src/styles/colors";
+// @import "../src/styles/typography";
+
+@include mat.core();
+
+html,
+body {
+  overflow-x: hidden;
+  touch-action: pan-y manipulation;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.main-container {
+  flex: 1 0 auto;
+  display: flex;
+  position: relative;
+  max-width: 100vw;
+}
+
+.main-content {
+  max-width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+$mat-primary-color: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
+  contrast: (),
+);
+
+$custom-primary: mat.define-palette($mat-primary-color, 500);
+$custom-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($custom-theme);
+$color-config: mat.get-color-config($custom-theme);
+$primary-palette: map.get($color-config, "primary");
+$accent-palette: map.get($color-config, "accent");
+$warn-palette: map.get($color-config, "warn");
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+}
+
+// override text
+.fs-lg {
+  font-size: 4rem !important;
+  letter-spacing: -0.9px;
+  font-family: "avenir-black" !important;
+  font-weight: 900;
+  span {
+    font-size: 3.5rem !important;
+  }
+  @include media-breakpoint-between(sm, lg) {
+    font-size: 2.3rem !important;
+    span {
+      font-size: 2rem !important;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 1.8rem !important;
+    span {
+      font-size: 2.5rem !important;
+    }
+  }
+}
+
+.fs-md {
+  font-size: 1.5rem !important;
+  font-weight: 500;
+  line-height: 1.1;
+  opacity: 0.9;
+  font-family: "Times New Roman", Times, serif !important;
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+}
+.fs-sm {
+  font-size: 1.25rem !important;
+  line-height: 1.3;
+  letter-spacing: -0.8 !important;
+  font-family: "Times New Roman", Times, serif !important;
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+}
+.fs-small {
+  font-size: 1.25rem !important;
+  @include media-breakpoint-down(sm) {
+    font-size: 1.125rem !important;
+  }
+}
+
+.text-black {
+  color: black;
+}
+.text-primary {
+  color: $primary-color !important;
+}
+.bg-color {
+  background-image: linear-gradient(180deg, black, black, black, white);
+}

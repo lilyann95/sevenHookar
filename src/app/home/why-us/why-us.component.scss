@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/_mixins.scss";
+
+.text-width {
+  margin-right: 15rem !important;
+}
+
+@media only screen and (max-width: 575px) {
+  .text-width {
+    margin-right: 1rem !important;
+  }
+}
+@include media-breakpoint-between(sm, lg) {
+  .text-width {
+    margin-right: 2rem !important;
+  }
+}

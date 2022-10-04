@@ -1,0 +1,25 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/_mixins.scss";
+
+.speciality-mixes {
+  .title {
+    font-size: 4rem !important;
+    letter-spacing: -0.9px;
+    line-height: 1;
+  }
+  @media only screen and (max-width: 575px) {
+    .title {
+      font-size: 2.5rem !important;
+    }
+  }
+
+  @include media-breakpoint-between(sm, lg) {
+    .title {
+      font-size: 3rem !important;
+      letter-spacing: -0.9px;
+      line-height: 1;
+      font-family: "Times New Roman", Times, serif !important;
+    }
+  }
+}

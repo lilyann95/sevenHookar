@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/_mixins.scss";
+
+.about {
+  min-height: 38rem !important;
+  .title {
+    font-size: 5.5rem !important;
+    letter-spacing: -0.9px;
+    line-height: 1;
+    font-family: "Times New Roman", Times, serif !important;
+  }
+  .text-message {
+    font-size: 1.75rem !important;
+    font-weight: 500;
+    line-height: 1.4;
+    opacity: 0.9;
+    padding-right: 12rem;
+    font-family: "Times New Roman", Times, serif !important;
+  }
+  .text-title {
+    font-size: 3.1rem !important;
+    line-height: 1.7 !important;
+    letter-spacing: -0.9px !important;
+  }
+  .text-msg {
+    line-height: 1.7 !important;
+  }
+  @include media-breakpoint-between(sm, lg) {
+    .title {
+      font-size: 5rem !important;
+      letter-spacing: -0.9px;
+      line-height: 1;
+    }
+
+    .text-message {
+      font-size: 1.75rem !important;
+      font-weight: 500;
+      line-height: 1.4;
+      opacity: 0.9;
+      padding-right: 0.5rem !important;
+      font-family: "Times New Roman", Times, serif !important;
+    }
+  }
+}
